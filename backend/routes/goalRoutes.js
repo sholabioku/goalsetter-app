@@ -7,12 +7,8 @@ const {
 } = require('../controllers/goalController');
 const router = express.Router();
 
-router.get('/', getGoals);
+router.route('/').get(getGoals).post(setGoal);
 
-router.post('/', setGoal);
-
-router.put('/:id', updateGoal);
-
-router.delete('/:id', deleteGoal);
+router.route('/:id').put(updateGoal).delete(deleteGoal);
 
 module.exports = router;
